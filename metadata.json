@@ -1,0 +1,5 @@
+{
+  "name": "HTML壓縮器",
+  "description": "A dark-themed, client-side HTML minifier designed to safely preserve Server Side Includes (SSI) and handle modern HTML structures.",
+  "requestFramePermissions": []
+}
