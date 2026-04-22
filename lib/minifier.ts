@@ -158,6 +158,13 @@ const optimizeAttributes = (html: string): string => {
     // Only if value contains safe chars: a-z A-Z 0-9 - _ . :
     newAttrs = newAttrs.replace(/\s([a-z0-9:_-]+)=["']([a-zA-Z0-9\-\._:]+)["']/gi, ' $1=$2');
 
+    // 4. Safe trailing slash: <input id=foo/> becomes <input id=foo /> to prevent browser parser treating / as part of the unquoted attribute value
+    if (trailingSlash === '/') {
+      if (newAttrs.length > 0 && !/[\s"']$/.test(newAttrs)) {
+        newAttrs += ' ';
+      }
+    }
+
     return `<${tagName}${newAttrs}${trailingSlash}>`;
   });
 };

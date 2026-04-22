@@ -100,9 +100,7 @@ export default function App() {
 
   const handleClear = () => {
     if (input.length === 0) return;
-    if (window.confirm('Clear the editor?')) {
-      setInput('');
-    }
+    setInput('');
   };
 
   const handleLoadDemo = () => {
